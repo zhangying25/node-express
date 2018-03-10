@@ -24,7 +24,7 @@ promoRouter.route('/')
         res.end('Deleting all promotions');
     });
 
-promoRouter.route('/:promotionId')
+promoRouter.route('/:id')
     .all(function(req, res, next) {
         res.writeHead(200, {
             'Content-Type': 'text/plain'
@@ -33,17 +33,17 @@ promoRouter.route('/:promotionId')
     })
 
     .get(function(req, res, next) {
-        res.end('Will send details of the promotion: ' + req.params.promotionId + ' to you!');
+        res.end('Will send details of the promotion: ' + req.params.id + ' to you!');
     })
 
     .put(function(req, res, next) {
-        res.write('Updating the promotion: ' + req.params.promotionId + '\n');
+        res.write('Updating the promotion: ' + req.params.id + '\n');
         res.end('Will update the promotion: ' + req.body.name +
             ' with details: ' + req.body.description);
     })
 
     .delete(function(req, res, next) {
-        res.end('Deleting promotion: ' + req.params.promotionId);
+        res.end('Deleting promotion: ' + req.params.id);
     });
 
 module.exports = promoRouter;

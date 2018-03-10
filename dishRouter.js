@@ -24,7 +24,7 @@ dishRouter.route('/')
         res.end('Deleting all dishes');
     });
 
-dishRouter.route('/:dishId')
+dishRouter.route('/:id')
     .all(function(req, res, next) {
         res.writeHead(200, {
             'Content-Type': 'text/plain'
@@ -33,17 +33,17 @@ dishRouter.route('/:dishId')
     })
 
     .get(function(req, res, next) {
-        res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
+        res.end('Will send details of the dish: ' + req.params.id + ' to you!');
     })
 
     .put(function(req, res, next) {
-        res.write('Updating the dish: ' + req.params.dishId + '\n');
+        res.write('Updating the dish: ' + req.params.id + '\n');
         res.end('Will update the dish: ' + req.body.name +
             ' with details: ' + req.body.description);
     })
 
     .delete(function(req, res, next) {
-        res.end('Deleting dish: ' + req.params.dishId);
+        res.end('Deleting dish: ' + req.params.id);
     });
 
 module.exports = dishRouter;
